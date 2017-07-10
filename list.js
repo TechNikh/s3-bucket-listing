@@ -243,7 +243,7 @@ function prepareTable(info) {
 }
 
 function renderRow(item, cols) {
-  var itemImageURL = 'https://commons.wikimedia.org/wiki/File:Folder_7_icon-72a7cf.svg#/media/File:Folder_7_icon-72a7cf.svg';
+  var itemImageURL = 'https://upload.wikimedia.org/wikipedia/commons/4/42/Folder_7_icon-72a7cf.svg';
   var itemDescription = '';
   if(item.Size != 0){
     // It's a file. Not a folder.
