@@ -201,7 +201,7 @@ function prepareTable(info) {
   var cols = [45, 30, 15];
   var content = [];
   //content.push(padRight('Last Modified', cols[1]) + '  ' +
-               padRight('Size', cols[2]) + 'Key \n');
+               //padRight('Size', cols[2]) + 'Key \n');
   //content.push(new Array(cols[0] + cols[1] + cols[2] + 4).join('-') + '\n');
 
   // add ../ at the start of the dir listing, unless we are already at root dir
