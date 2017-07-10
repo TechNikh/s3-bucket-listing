@@ -200,9 +200,9 @@ function prepareTable(info) {
   var files = info.directories.concat(info.files), prefix = info.prefix;
   var cols = [45, 30, 15];
   var content = [];
-  //content.push(padRight('Last Modified', cols[1]) + '  ' +
-               //padRight('Size', cols[2]) + 'Key \n');
-  //content.push(new Array(cols[0] + cols[1] + cols[2] + 4).join('-') + '\n');
+  /*content.push(padRight('Last Modified', cols[1]) + '  ' +
+               padRight('Size', cols[2]) + 'Key \n');
+  content.push(new Array(cols[0] + cols[1] + cols[2] + 4).join('-') + '\n');
 
   // add ../ at the start of the dir listing, unless we are already at root dir
   if (prefix && prefix !== S3B_ROOT_DIR) {
@@ -218,7 +218,7 @@ function prepareTable(info) {
             },
         row = renderRow(item, cols);
     content.push(row + '\n');
-  }
+  }*/
 
   jQuery.each(files, function(idx, item) {
     // strip off the prefix
