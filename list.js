@@ -243,10 +243,18 @@ function prepareTable(info) {
 }
 
 function renderRow(item, cols) {
+  var itemImageURL = 'https://commons.wikimedia.org/wiki/File:Folder_7_icon-72a7cf.svg#/media/File:Folder_7_icon-72a7cf.svg';
+  var itemDescription = '';
+  if(item.Size){
+    // Not a folder. It's a file.
+    itemImageURL = 'https://upload.wikimedia.org/wikipedia/commons/7/77/Icon_New_File_256x256.png';
+    itemDescription = 'Size: '+item.Size+' Last Modified: '+item.LastModified;
+  }
+
   var row = '<li class="w3-padding-16"> \
-    <img src="https://www.w3schools.com/w3css/img_avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:50px"> \
+    <img src="'+itemImageURL+'" class="w3-left w3-circle w3-margin-right" style="width:50px"> \
     <span class="w3-large"><a href="' + item.href + '">' + item.keyText + '</a></span><br> \
-    <span>' + item.href + '</span> \
+    <span>' + itemDescription + '</span> \
   </li>';
   /*row += padRight(item.LastModified, cols[1]) + '  ';
   row += padRight(item.Size, cols[2]);
