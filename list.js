@@ -243,10 +243,14 @@ function prepareTable(info) {
 }
 
 function renderRow(item, cols) {
-  var row = '';
-  row += padRight(item.LastModified, cols[1]) + '  ';
+  var row = '<li class="w3-padding-16"> \
+    <img src="https://www.w3schools.com/w3css/img_avatar2.png" class="w3-left w3-circle w3-margin-right" style="width:50px"> \
+    <span class="w3-large"><a href="' + item.href + '">' + item.keyText + '</a></span><br> \
+    <span>' + item.href + '</span> \
+  </li>';
+  /*row += padRight(item.LastModified, cols[1]) + '  ';
   row += padRight(item.Size, cols[2]);
-  row += '<a href="' + item.href + '">' + item.keyText + '</a>';
+  row += '<a href="' + item.href + '">' + item.keyText + '</a>';*/
   return row;
 }
 
