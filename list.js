@@ -246,7 +246,7 @@ function renderRow(item, cols) {
   var itemImageURL = 'https://commons.wikimedia.org/wiki/File:Folder_7_icon-72a7cf.svg#/media/File:Folder_7_icon-72a7cf.svg';
   var itemDescription = '';
   if(item.Size != 0){
-    // Not a folder. It's a file.
+    // It's a file. Not a folder.
     itemImageURL = 'https://upload.wikimedia.org/wikipedia/commons/7/77/Icon_New_File_256x256.png';
     itemDescription = 'Size: '+item.Size+' Last Modified: '+item.LastModified;
   }
