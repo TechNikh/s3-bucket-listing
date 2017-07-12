@@ -245,13 +245,16 @@ function prepareTable(info) {
 function renderRow(item, cols) {
   var itemImageURL = 'https://upload.wikimedia.org/wikipedia/commons/4/42/Folder_7_icon-72a7cf.svg';
   var itemDescription = '';
-  if(item.Size != 0){
-    // It's a file. Not a folder.
+  var itemDownloadCheckbox = '';
+  if (item.Type != 'directory') {
+    // It's a file. Not a directory.
     itemImageURL = 'https://upload.wikimedia.org/wikipedia/commons/7/77/Icon_New_File_256x256.png';
     itemDescription = 'Size: '+item.Size+' Last Modified: '+item.LastModified;
+    itemDownloadCheckbox = '<input type="checkbox" data-url="' + item.href + '" checked />';
   }
 
   var row = '<li class="w3-padding-16"> \
+     '+itemDownloadCheckbox+'\
     <img src="'+itemImageURL+'" class="w3-left w3-circle w3-margin-right" style="width:50px"> \
     <span class="w3-large"><a href="' + item.href + '">' + item.keyText + '</a></span><br> \
     <span>' + itemDescription + '</span> \
@@ -282,3 +285,15 @@ function bytesToHumanReadable(sizeInBytes) {
   } while (sizeInBytes > 1024);
   return Math.max(sizeInBytes, 0.1).toFixed(1) + units[i];
 }
+
+var $form = $("#download_form").on("submit", function () {
+  console.log("downloading selected");
+        // find every checked item
+        $(this).find(":checked").each(function () {
+            var $this = $(this);
+            var url = $this.data("url");
+            var filename = url.replace(/.*\//g, "");
+          console.log(filename);
+            //zip.file(filename, urlToPromise(url), {binary:true});
+        });
+});
