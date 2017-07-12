@@ -286,7 +286,7 @@ function bytesToHumanReadable(sizeInBytes) {
   return Math.max(sizeInBytes, 0.1).toFixed(1) + units[i];
 }
 
-var $form = $("#download_form").on("submit", function () {
+var $form = $("#download_form .btn-primary").click(function() {
   console.log("downloading selected");
         // find every checked item
         $(this).find(":checked").each(function () {
