@@ -250,7 +250,7 @@ function renderRow(item, cols) {
     // It's a file. Not a directory.
     itemImageURL = 'https://upload.wikimedia.org/wikipedia/commons/7/77/Icon_New_File_256x256.png';
     itemDescription = 'Size: '+item.Size+' Last Modified: '+item.LastModified;
-    itemDownloadCheckbox = '<input type="checkbox" data-url="' + item.href + '" checked />';
+    itemDownloadCheckbox = '<input type="checkbox" class="checkBoxClass" data-url="' + item.href + '" checked />';
   }
 
   var row = '<li class="w3-padding-16"> \
@@ -316,9 +316,9 @@ var $form = $("#download_form .btn-primary").click(function() {
         .then(function callback(blob) {
 
             // see FileSaver.js
-            saveAs(blob, "example.zip");
+            saveAs(blob, "zipped-files.zip");
 
-            showMessage("done !");
+            showMessage("Download completed !");
         }, function (e) {
             showError(e);
         });
