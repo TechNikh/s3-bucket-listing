@@ -295,6 +295,9 @@ var $form = $("#download_form .btn-primary").click(function() {
         console.log("downloading selected");
         var zip = new JSZip();
 
+     if($.isEmptyObject($.find('#id')){
+        alert("Please select atleast one file to Download !");
+     }
         // find every checked item
         $("#download_form").find(":checked").each(function () {
             var $this = $(this);
@@ -303,7 +306,7 @@ var $form = $("#download_form .btn-primary").click(function() {
             console.log(filename);
             zip.file(filename, urlToPromise(url), {binary:true});
         });
-
+        console.log("zip.generateAsync");
         // when everything has been downloaded, we can trigger the dl
         zip.generateAsync({type:"blob"}, function updateCallback(metadata) {
             var msg = "progression : " + metadata.percent.toFixed(2) + " %";
