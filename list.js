@@ -289,7 +289,7 @@ function bytesToHumanReadable(sizeInBytes) {
 var $form = $("#download_form .btn-primary").click(function() {
   console.log("downloading selected");
         // find every checked item
-        $(this).find(":checked").each(function () {
+        $("#download_form").find(":checked").each(function () {
             var $this = $(this);
             var url = $this.data("url");
             var filename = url.replace(/.*\//g, "");
