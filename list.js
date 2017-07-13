@@ -297,6 +297,7 @@ var $form = $("#download_form .btn-primary").click(function() {
 
      if($.isEmptyObject($.find('#id'))){
         alert("Please select atleast one file to Download !");
+        return false;
      }
         // find every checked item
         $("#download_form").find(":checked").each(function () {
