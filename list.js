@@ -292,7 +292,9 @@ var Promise = window.Promise;
     }
 
 var $form = $("#download_form .btn-primary").click(function() {
-  console.log("downloading selected");
+        console.log("downloading selected");
+        var zip = new JSZip();
+
         // find every checked item
         $("#download_form").find(":checked").each(function () {
             var $this = $(this);
