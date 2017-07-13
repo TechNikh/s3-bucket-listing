@@ -295,7 +295,7 @@ var $form = $("#download_form .btn-primary").click(function() {
         console.log("downloading selected");
         var zip = new JSZip();
 
-     if($.isEmptyObject($.find('#id')){
+     if($.isEmptyObject($.find('#id'))){
         alert("Please select atleast one file to Download !");
      }
         // find every checked item
