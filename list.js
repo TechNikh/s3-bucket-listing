@@ -286,14 +286,34 @@ function bytesToHumanReadable(sizeInBytes) {
   return Math.max(sizeInBytes, 0.1).toFixed(1) + units[i];
 }
 
-var $form = $("#download_form .btn-primary").click(function() {
+var $form = $("#download_form").on("submit", function () {
   console.log("downloading selected");
         // find every checked item
-        $("#download_form").find(":checked").each(function () {
+        $(this).find(":checked").each(function () {
             var $this = $(this);
             var url = $this.data("url");
             var filename = url.replace(/.*\//g, "");
-          console.log(filename);
+            console.log(filename);
             //zip.file(filename, urlToPromise(url), {binary:true});
         });
+  return false;
+        // when everything has been downloaded, we can trigger the dl
+        zip.generateAsync({type:"blob"}, function updateCallback(metadata) {
+            var msg = "progression : " + metadata.percent.toFixed(2) + " %";
+            if(metadata.currentFile) {
+                msg += ", current file = " + metadata.currentFile;
+            }
+            showMessage(msg);
+            updatePercent(metadata.percent|0);
+        })
+        .then(function callback(blob) {
+
+            // see FileSaver.js
+            saveAs(blob, "example.zip");
+
+            showMessage("done !");
+        }, function (e) {
+            showError(e);
+        });
+        return false;
 });
