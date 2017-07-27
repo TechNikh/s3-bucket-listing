@@ -249,7 +249,7 @@ function renderRow(item, cols) {
   if (item.Type != 'directory') {
     // It's a file. Not a directory.
     itemImageURL = 'https://upload.wikimedia.org/wikipedia/commons/7/77/Icon_New_File_256x256.png';
-    itemDescription = 'Size: '+item.Size+' Last Modified: '+item.LastModified;
+    itemDescription = 'Size: '+item.Size+' Last Modified: '+item.LastModified+'<br /><a download href="' + item.href + '"><img src="http://eschool2go.org/sites/default/files/button-download.png" /></a>';
     itemDownloadCheckbox = '<input type="checkbox" class="checkBoxClass" data-url="' + item.href + '" checked />';
   }
 
